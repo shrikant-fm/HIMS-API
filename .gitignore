@@ -1,0 +1,10 @@
+node_modules
+yarn.lock
+
+.env
+sampledata_BBY_API.js
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
