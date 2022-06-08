@@ -5,8 +5,6 @@ const {GraphQLJSON} = require('graphql-type-json');
 
 const resolver = {
     Query:{
-
-        
             
     },
     Mutation:{
