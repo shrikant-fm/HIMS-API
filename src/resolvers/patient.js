@@ -12,7 +12,7 @@ module.exports = resolver = {
                 return await DB.PatientCatalog.findAll({});
             },
             async fetchPatient(_, {id}){
-                return await DB.PatientCatalog.findById(id);
+                return await DB.PatientCatalog.findByPk(id);
 
             },
             // JSON: {
@@ -31,18 +31,18 @@ module.exports = resolver = {
             }
             return patient;
         },
-       async createPatient(_,{patientName,dateOfBith,phoneNo,gender,address,district,city,state,pincode,existingAliments}){
-           console.log("---here  in create Patient");
-           var date = moment(dateOfBith,"YY-MM-DD").format("YY-MM-DD");
-           console.log(date);
-           console.log("--",patientName)
-            const patient= await DB.PatientCatalog.create({patientName,date,phoneNo,gender,address,district,city,state,pincode,existingAliments});
-            // console.log(patient);
-        if(patient)
-        return patient;
-        else
-        throw new Error("user not created");
-        },
+       async createPatient(_,{patientName,dateOfBirth,phoneNo,gender,address,district,city,state,pincode,existingAilments}){
+        try {
+            const patient= await DB.PatientCatalog.create({patientName,dateOfBirth,phoneNo,gender,address,district,city,state,pincode,existingAilments});
+            if(patient)
+            return patient;
+            else
+            throw new Error("user not created");
+        } catch (error) {
+            console.log(error.message)
+        }
+    }
+        
         // JSON: {
         //     __serialize(value) {
         //       return GraphQLJSON.parseValue(value);

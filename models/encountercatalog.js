@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       EncounterCatalog.belongsToMany(models.PatientCatalog,{
-        through:'patinetEncounter',
+        through:'patientEncounter',
         onDelete:'CASCADE'
       })
     }

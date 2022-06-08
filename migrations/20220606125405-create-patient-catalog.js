@@ -11,7 +11,7 @@ module.exports = {
       patientName: {
         type: Sequelize.STRING
       },
-      dateOfBith: {
+      dateOfBirth: {
         type: Sequelize.DATE
       },
       phoneNo: {

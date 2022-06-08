@@ -7,16 +7,16 @@ scalar Date
 type Patient {
     id:Int!
     patientName: String!
-    dateOfBith: String!
-    phoneNo: Int!
-    gender: String!
-    address: String!
-    district: String!
+    dateOfBirth: DateTime
+    phoneNo: String!
+    gender: String
+    address: String
+    district: String
     city: String!
     state: String!
     pincode: Int!
-    existingAilments: JSON!
-    createdAt:DateTime! 
+    existingAilments: JSON
+    createdAt:DateTime!
     updatedAt:DateTime!
   }
    
@@ -29,12 +29,12 @@ extend type Query{
 
 extend type Mutation{
     
-    patientLogin(phoneNo: Int!):String!
+    patientLogin(phoneNo: String!):String!
     
     
     createPatient( patientName: String!,
-    dateOfBith: String,
-    phoneNo: Int!,
+    dateOfBirth: DateTime!,
+    phoneNo: String!,
     gender: String!,
     address: String!,
     district: String!,

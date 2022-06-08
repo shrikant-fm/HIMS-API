@@ -22,7 +22,7 @@ module.exports = {
             key:'id'
           }
         }, { transaction: t }),
-        queryInterface.addColumn('PrescriptionCatalogs', 'patinetEncounterId', {
+        queryInterface.addColumn('PrescriptionCatalogs', 'patientEncounterId', {
           type: Sequelize.DataTypes.INTEGER,
           references:{
             model: {
@@ -39,7 +39,7 @@ module.exports = {
       return Promise.all([
         queryInterface.removeColumn('PrescriptionCatalogs', 'patientId', { transaction: t }),
         queryInterface.removeColumn('PrescriptionCatalogs', 'doctorId', { transaction: t }),
-        queryInterface.removeColumn('PrescriptionCatalogs', 'patinetEncounterId', { transaction: t })
+        queryInterface.removeColumn('PrescriptionCatalogs', 'patientEncounterId', { transaction: t })
       ]);
     });
   }
