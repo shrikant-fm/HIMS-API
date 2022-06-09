@@ -4,7 +4,7 @@ const {gql} =require('apollo-server-express');
 module.exports= gql`
 scalar JSON
 scalar Date
-type Patient {
+type Patient{
     id:Int!
     patientName: String!
     dateOfBirth: DateTime
@@ -23,7 +23,8 @@ type Patient {
 
 extend type Query{
     allPatients:[Patient!]
-    fetchPatient(id:Int!):Patient
+    fetchPatientByPhoneNo(phoneNo:String!):Patient
+    fetchPatientById(id:Int!):Patient
     
 }
 
@@ -41,6 +42,7 @@ extend type Mutation{
     city: String!,
     state: String!,
     pincode: Int!,
+    EncounterType: Int!
     existingAilments: JSON):Patient   
 }
 

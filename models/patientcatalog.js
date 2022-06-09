@@ -14,11 +14,10 @@ module.exports = (sequelize, DataTypes) => {
       PatientCatalog.hasMany(models.PrescriptionCatalog,{
         as:'prescription',
         foreignKey:'patientId',
-        onDelete: 'CASCADE',
       });
-      PatientCatalog.belongsToMany(models.EncounterCatalog,{
-        through:'Encounter',
-        onDelete:'CASCADE'
+      PatientCatalog.hasMany(models.patientEncounter,{
+        as:"encounters",
+        foreignKey:'patientId',
       })
     }
   }

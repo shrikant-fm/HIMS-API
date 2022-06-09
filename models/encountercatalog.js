@@ -11,10 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      EncounterCatalog.belongsToMany(models.PatientCatalog,{
-        through:'patientEncounter',
-        onDelete:'CASCADE'
-      })
+      EncounterCatalog.hasMany(models.patientEncounter,{
+      as:"patients",
+      foreignKey:"encounterCatalogId"})
+       
     }
     
   }

@@ -19,12 +19,12 @@ module.exports = resolver = {
     },
     Mutation:{
       
-       async createEncouterType(_,{encounterType}){
+       async createEncouterType(_,{encounterType}, ){
            console.log("---here  in create encounterType");
         
-           console.log("--",encounterType)
+           console.log("--",encounterType);
             const encounter= await DB.EncounterCatalog.create({encounterType});
-            // console.log(patient);
+         console.log(encounter);
         if(encounter)
         return encounter;
         else
