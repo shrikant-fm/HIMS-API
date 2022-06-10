@@ -8,7 +8,7 @@ type Patient{
     id:Int!
     patientName: String!
     dateOfBirth: DateTime
-    phoneNo: String!
+    phoneNo: Float!
     gender: String
     address: String
     district: String
@@ -23,7 +23,7 @@ type Patient{
 
 extend type Query{
     allPatients:[Patient!]
-    fetchPatientByPhoneNo(phoneNo:String!):Patient
+    fetchPatientByPhoneNo(phoneNo:Float!):Patient
     fetchPatientById(id:Int!):Patient
     
 }
@@ -35,7 +35,7 @@ extend type Mutation{
     
     createPatient( patientName: String!,
     dateOfBirth: DateTime!,
-    phoneNo: String!,
+    phoneNo: Float!,
     gender: String!,
     address: String!,
     district: String!,

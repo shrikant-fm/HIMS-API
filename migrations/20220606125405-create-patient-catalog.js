@@ -15,7 +15,7 @@ module.exports = {
         type: Sequelize.DATE
       },
       phoneNo: {
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
       gender: {
         type: Sequelize.STRING

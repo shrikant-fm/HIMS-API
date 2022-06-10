@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes) => {
   PatientCatalog.init({
     patientName: DataTypes.STRING,
     dateOfBirth: DataTypes.DATE,
-    phoneNo: DataTypes.INTEGER,
+    phoneNo: DataTypes.BIGINT,
     gender: DataTypes.STRING,
     address: DataTypes.STRING,
     district: DataTypes.STRING,

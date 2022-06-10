@@ -12,8 +12,7 @@ module.exports = resolver = {
                 return await DB.PatientCatalog.findAll({});
             },
             async fetchPatientByPhoneNo(_, {phoneNo}){
-                return await DB.PatientCatalog.findOne({where:{phoneNo:phoneNo}});
-
+                return await DB.PatientCatalog.findOne({where:{phoneNo: parseInt(phoneNo)}});
             },
             async fetchPatientById(_, {id}){
                 return await DB.PatientCatalog.findByPk(id);
@@ -37,7 +36,7 @@ module.exports = resolver = {
         },
        async createPatient(_,{patientName,dateOfBirth,phoneNo,gender,address,district,city,state,pincode,EncounterType,existingAilments}){
         try {
-            const patient = await DB.PatientCatalog.create({patientName,dateOfBirth,phoneNo,gender,address,district,city,state,pincode});
+            const patient = await DB.PatientCatalog.create({patientName,dateOfBirth,phoneNo: parseInt(phoneNo),gender,address,district,city,state,pincode,existingAilments});
             const patientEncounter = await DB.patientEncounter.create({patientId:patient.id,encounterCatalogId:EncounterType});
         
             if(patient)
