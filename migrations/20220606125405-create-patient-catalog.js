@@ -9,18 +9,23 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       patientName: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       dateOfBirth: {
         type: Sequelize.DATE
       },
       phoneNo: {
-        type: Sequelize.BIGINT
+        type: Sequelize.BIGINT,
+        allowNull: false
       },
       gender: {
         type: Sequelize.STRING
       },
-      address: {
+      addressLine1: {
+        type: Sequelize.STRING
+      },
+      addressLine2: {
         type: Sequelize.STRING
       },
       district: {
@@ -33,10 +38,8 @@ module.exports = {
         type: Sequelize.STRING
       },
       pincode: {
-        type: Sequelize.INTEGER
-      },
-      existingAilments: {
-        type: Sequelize.JSON
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

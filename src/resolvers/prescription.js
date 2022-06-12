@@ -12,7 +12,7 @@ const resolver = {
           {  patientId,
             doctorId,
             prescriptionImagePath}){
-                return await DB.PrescriptionCatalog.create({patientId,
+                return await DB.Prescription.create({patientId,
                     doctorId,
                     prescriptionImagePath});
 

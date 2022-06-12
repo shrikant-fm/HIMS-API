@@ -4,7 +4,7 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
-        queryInterface.addColumn('PrescriptionCatalogs', 'patientId', {
+        queryInterface.addColumn('Prescriptions', 'patientId', {
           type: Sequelize.INTEGER,
           references:{
             model: {
@@ -13,7 +13,7 @@ module.exports = {
             key:'id'
           }
         }, { transaction: t }),
-        queryInterface.addColumn('PrescriptionCatalogs', 'doctorId', {
+        queryInterface.addColumn('Prescriptions', 'doctorId', {
           type: Sequelize.DataTypes.INTEGER,
           references:{
             model: {
@@ -22,11 +22,11 @@ module.exports = {
             key:'id'
           }
         }, { transaction: t }),
-        queryInterface.addColumn('PrescriptionCatalogs', 'patientEncounterId', {
+        queryInterface.addColumn('Prescriptions', 'patientEncounterId', {
           type: Sequelize.DataTypes.INTEGER,
           references:{
             model: {
-              tableName: 'patientEncounters',
+              tableName: 'PatientEncounters',
             },
             key:'id'
           }
@@ -37,9 +37,9 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
-        queryInterface.removeColumn('PrescriptionCatalogs', 'patientId', { transaction: t }),
-        queryInterface.removeColumn('PrescriptionCatalogs', 'doctorId', { transaction: t }),
-        queryInterface.removeColumn('PrescriptionCatalogs', 'patientEncounterId', { transaction: t })
+        queryInterface.removeColumn('Prescriptions', 'patientId', { transaction: t }),
+        queryInterface.removeColumn('Prescriptions', 'doctorId', { transaction: t }),
+        queryInterface.removeColumn('Prescriptions', 'patientEncounterId', { transaction: t })
       ]);
     });
   }
