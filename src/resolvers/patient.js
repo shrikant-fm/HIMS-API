@@ -39,7 +39,7 @@ module.exports = resolver = {
             const patient = await DB.PatientCatalog.create({patientName,dateOfBirth,phoneNo: parseInt(phoneNo),gender,address,district,city,state,pincode,existingAilments});
             const patientEncounter = await DB.patientEncounter.create({patientId:patient.id,encounterCatalogId:EncounterType});
         
-            if(patient)
+            if( patient )
             return patient;
             else
             throw new Error("user not created");

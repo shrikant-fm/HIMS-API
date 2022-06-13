@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const cors= require('cors');
 const {ApolloServer} = require('apollo-server-express')
 var http = require('http')
+const graphqlUploadExpress= require('graphql-upload/graphqlUploadExpress.js')
 
 const typeDefs = require('./src/schema')
 const resolvers = require('./src/resolvers')
@@ -19,21 +20,23 @@ const app = express();
 app.use(cors());
 app.use(logger('dev'));
 app.use(bodyParser.json({limit: '50mb'}));
-
-
+app.use(express.static('public'));
 
 
 //Apollo server Connection
 const startApolloServer  = async()=>{
+    app.use(graphqlUploadExpress());
     const server = new ApolloServer({
         introspection:true,        
         typeDefs,
         resolvers,
+        csrfPrevention:false
         // context:async(req)=>{
         //     authUser:req.user
         // }
     })
     await server.start();
+      
     server.applyMiddleware({app,path:'/graphql'})
 
         // const httpServer= http.createServer(app);
