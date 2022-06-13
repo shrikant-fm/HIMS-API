@@ -24,6 +24,7 @@ type Patient{
 extend type Query{
     allPatients:[Patient!]
     fetchPatientByPhoneNo(phoneNo:Float!):Patient
+    fetchPatientByEncounterId(encounterId:Float!):Patient
     fetchPatientGeneral(patientName: String, phoneNo: Float, gender: String, dateOfBirth: DateTime, city: String, pincode: Int):[Patient!]
     fetchPatientById(id:Int!):Patient
 }

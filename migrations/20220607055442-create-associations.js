@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.sequelize.transaction(t => {
       return Promise.all([
         queryInterface.addColumn('Prescriptions', 'patientId', {
-          type: Sequelize.INTEGER,
+          type: Sequelize.DataTypes.INTEGER,
           references:{
             model: {
               tableName: 'PatientCatalogs',

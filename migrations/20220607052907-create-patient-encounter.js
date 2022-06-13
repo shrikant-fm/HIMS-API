@@ -19,16 +19,7 @@ module.exports = {
       },
       allowNull: false
     },
-    patientEncounterId: {
-      type: Sequelize.DataTypes.INTEGER,
-      references: {
-        model: {
-          tableName: 'PatientEncounters',
-        },
-        key: 'id'
-      },
-      allowNull: false
-    },
+ 
     encounterCatalogId: {
       type: Sequelize.DataTypes.INTEGER,
       references: {
@@ -39,6 +30,18 @@ module.exports = {
       },
       allowNull: false
     },
+    encounterTypeText : {
+        type: Sequelize.STRING,
+    },
+
+    primaryComplaint : {
+      type : Sequelize.STRING
+
+    },
+    secondaryComplaint : {
+      type : Sequelize.STRING
+    },
+    
     createdAt: {
       allowNull: false,
       type: Sequelize.DATE

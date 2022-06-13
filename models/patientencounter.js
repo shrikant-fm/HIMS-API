@@ -27,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   PatientEncounter.init({
     patientId:DataTypes.INTEGER,
-    encounterCatalogId:DataTypes.INTEGER,
+    encounterCatalogId: DataTypes.INTEGER,
+    encounterTypeText: DataTypes.STRING,
     primaryComplaint: DataTypes.STRING,
     secondaryComplaint: DataTypes.STRING
   }, {

@@ -12,7 +12,7 @@ module.exports = resolver = {
                 return await DB.EncounterCatalog.findAll({});
             },
             async fetchEncounterType(_, {id}){
-                return await DB.EncounterCatalog.findById(id);
+                return await DB.EncounterCatalog.findByPk(id);
 
             },
             

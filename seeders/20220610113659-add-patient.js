@@ -13,9 +13,12 @@ module.exports = {
     */
      await queryInterface.bulkInsert('PatientCatalogs', [
       {
-        id: 10000000,
         patientName: "Patient1",
         dateOfBirth: "2015-08-15",
+        gender:'Male',
+        city:'pune',
+        state:'Maharashtra',
+        district:'Pune',
         phoneNo: 1234567890,
         pincode: 411007,
         createdAt: new Date(),

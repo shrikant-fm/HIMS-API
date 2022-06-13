@@ -16,6 +16,10 @@ module.exports = resolver = {
             async fetchPatientByPhoneNo(_, {phoneNo}){
                 return await DB.PatientCatalog.findOne({where:{phoneNo: parseInt(phoneNo)}});
             },
+            async fetchPatientById(_, {id}){
+               
+                return await DB.PatientCatalog.findByPk(id);
+            },
             async fetchPatientGeneral(_, { patientName, phoneNo, gender, dateOfBirth, city, pincode }){
                 try {
                     const args = []

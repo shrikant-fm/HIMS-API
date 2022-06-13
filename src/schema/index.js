@@ -2,6 +2,8 @@ const prescriptionSchema = require('./prescription')
 const patientSchema = require('./patient')
 const encounterTypesSchema = require('./encounterType')
 const doctorSchema = require('./doctor')
+const patientEncounterSchema =  require('./patientEncounter');
+
 const { gql } = require("apollo-server-express")
 const { DateTimeTypeDefinition } =  require("graphql-scalars")
 
@@ -19,4 +21,4 @@ type Subscription{
     _:Boolean
 }
 `;
-module.exports = [DateTimeTypeDefinition,baseSchema,patientSchema,prescriptionSchema,encounterTypesSchema,doctorSchema]
+module.exports = [DateTimeTypeDefinition,baseSchema,patientSchema,prescriptionSchema,encounterTypesSchema,doctorSchema,patientEncounterSchema]
