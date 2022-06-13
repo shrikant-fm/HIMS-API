@@ -24,6 +24,7 @@ app.use(express.static('public'));
 
 
 //Apollo server Connection
+<<<<<<< HEAD
 const startApolloServer  = async()=>{
     app.use(graphqlUploadExpress());
     const server = new ApolloServer({
@@ -44,6 +45,29 @@ const startApolloServer  = async()=>{
         
    
     console.log(`apollo server is running at http://localhost:${PORT}${server.graphqlPath}`)
+=======
+const startApolloServer  = async() => {
+    try {
+        const server = new ApolloServer({
+            introspection:true,        
+            typeDefs,
+            resolvers,
+            // context:async(req)=>{
+            //     authUser:req.user
+            // }
+        })
+        await server.start();
+        server.applyMiddleware({ app, path: '/graphql' })
+    
+            // const httpServer= http.createServer(app);
+            // server.installSubscriptionHandlers(httpServer);
+            
+       
+        console.log(`apollo server is running at http://localhost:${PORT}${server.graphqlPath}`)   
+    } catch (error) {
+        console.log(error.message)
+    }
+>>>>>>> 9950df84d9ba621dbc0c85010d1a3c8194d6f80d
 }
 
 

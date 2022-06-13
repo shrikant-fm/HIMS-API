@@ -10,12 +10,12 @@ type Patient{
     dateOfBirth: DateTime
     phoneNo: Float!
     gender: String
-    address: String
+    addressLine1: String
+    addressLine2: String
     district: String
-    city: String!
-    state: String!
-    pincode: Int!
-    existingAilments: JSON
+    city: String
+    state: String
+    pincode: Int
     createdAt:DateTime!
     updatedAt:DateTime!
   }
@@ -24,8 +24,8 @@ type Patient{
 extend type Query{
     allPatients:[Patient!]
     fetchPatientByPhoneNo(phoneNo:Float!):Patient
+    fetchPatientGeneral(patientName: String, phoneNo: Float, gender: String, dateOfBirth: DateTime, city: String, pincode: Int):[Patient!]
     fetchPatientById(id:Int!):Patient
-    
 }
 
 extend type Mutation{
@@ -37,13 +37,13 @@ extend type Mutation{
     dateOfBirth: DateTime!,
     phoneNo: Float!,
     gender: String!,
-    address: String!,
+    addressLine1: String!,
+    addressLine2: String!,
     district: String!,
     city: String!,
     state: String!,
     pincode: Int!,
-    EncounterType: Int!
-    existingAilments: JSON):Patient   
+    EncounterType: Int!):Patient   
 }
 
 `;

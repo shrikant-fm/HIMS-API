@@ -20,7 +20,7 @@ module.exports = resolver = {
             doctorId,
             patinetEncounterId,
             prescriptionImagePath}){
-                return await DB.PrescriptionCatalog.create({patientId,
+                return await DB.Prescription.create({patientId,
                     doctorId,
                     patinetEncounterId,
                     prescriptionImagePath});
